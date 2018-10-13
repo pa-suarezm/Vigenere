@@ -49,10 +49,15 @@ public class Vigenere {
 		int kLength = key.length();
 		
 		String sequence = "";
+		
+		//TODO verify
 		for(int i=0; i<=(Math.floorDiv(mLength, kLength)-1); i++)
 			sequence += key;
 		int rest = (mLength%kLength);
 		sequence += key.substring(0, rest);
+		
+		//TODO debug
+		System.out.println("Sequence: " + sequence);
 		
 		String[] aMsg = msg.split("");
 		String[] aSeq = sequence.split("");
@@ -71,21 +76,7 @@ public class Vigenere {
 	public String decrypt (String msg){
 		String ans = "";
 		
-		int mLength = msg.length();
-		int kLength = key.length();
 		
-		String sequence = "";
-		for(int i=0; i<=(Math.floorDiv(mLength, kLength)-1); i++)
-			sequence += key;
-		int rest = (mLength%kLength);
-		sequence += key.substring(0, rest);
-		
-		String[] aMsg = msg.split("");
-		String[] aSeq = sequence.split("");
-		
-		for(int i=0; i<mLength; i++){
-			ans += table[giveIndexInRow(aMsg[i], giveIndex(aSeq[i]))][0];
-		}
 		
 		return ans;
 	}
@@ -97,9 +88,9 @@ public class Vigenere {
 	public static void main(String[] args) {
 		Vigenere cypher = new Vigenere();
 		Scanner s = new Scanner(System.in);
-		System.out.println("=========================================================");
-		System.out.println("-----------Vigenere cipher encryptor/decryptor-----------");
-		System.out.println("=========================================================");
+		System.out.println("======================================================");
+		System.out.println("-----------Vigenere cipher encryptor-decryptor--------");
+		System.out.println("======================================================");
 		
 		int option = 0;
 		while(option != -1){
