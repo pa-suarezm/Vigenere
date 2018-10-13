@@ -61,7 +61,6 @@ public class Vigenere {
 	
 	public static void main(String[] args) {
 		Vigenere cypher = new Vigenere();
-		Scanner s = new Scanner(System.in);
 		System.out.println("======================================================");
 		System.out.println("-----------Vigenere cipher encryptor-decryptor--------");
 		System.out.println("======================================================");
@@ -69,6 +68,7 @@ public class Vigenere {
 		int option = 0;
 		while(option != -1){
 			System.out.println("Enter the key to encrypt/decrypt with:");
+			Scanner s = new Scanner(System.in);
 			cypher.setKey(s.nextLine());
 			System.out.println("REMEMBER TO KEEP YOUR KEY SOMEWHERE SAFE");
 			System.out.println("IF YOU LOOSE IT, THERE'S NO WAY TO DECRYPT THE ENCRYPTED MSG");

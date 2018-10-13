@@ -39,21 +39,7 @@ public class Vigenere {
 	public String getKey(){return key;}
 	public void setKey(String nKey){key = nKey;}
 	
-	/**
-	 * Encrypts the message that comes in using the value stored in "key"
-	 * @param msg
-	 */
-	public String encrypt(String msg){
-		String ans = "";
-		
-		return ans;
-	}
 	
-	public String decrypt (String msg){
-		String ans = "";
-		
-		return ans;
-	}
 	
 	//---------------------------------------------------------
 	//Main method
@@ -61,27 +47,25 @@ public class Vigenere {
 	
 	public static void main(String[] args) {
 		Vigenere cypher = new Vigenere();
-		Scanner s = new Scanner(System.in);
 		System.out.println("======================================================");
 		System.out.println("-----------Vigenere cipher encryptor-decryptor--------");
 		System.out.println("======================================================");
 		
 		int option = 0;
-		while(option != -1){
+		while (option != -1) {
 			System.out.println("Enter the key to encrypt/decrypt with:");
+			Scanner s = new Scanner(System.in);
 			cypher.setKey(s.nextLine());
 			System.out.println("REMEMBER TO KEEP YOUR KEY SOMEWHERE SAFE");
 			System.out.println("IF YOU LOOSE IT, THERE'S NO WAY TO DECRYPT THE ENCRYPTED MSG");
 			System.out.println("------------------------------------------------------------------");
-			
 			System.out.println("Enter the text you wish to encrypt/decrypt:");
 			String msg = s.nextLine();
 			System.out.println("------------------------------------------------------------------");
-			
 			System.out.println("Enter the number of the option you wish (eg. 1):");
 			System.out.println("1. Encrypt message");
 			System.out.println("2. Decrypt message");
-			option = Integer.valueOf(s.nextLine().trim());
+			int option = Integer.valueOf(s.nextLine().trim());
 			System.out.println("------------------------------------------------------------------");
 			String ans = "";
 			if (option == 1)
@@ -91,15 +75,9 @@ public class Vigenere {
 			else {
 				ans = "Please restart the program and try again";
 				option = -1;
-			}
-			if(option != -1)
-				System.out.println("Message: ");
-			System.out.print(ans);
-			System.out.println("------------------------------------------------------------------");
-			System.out.println("==================================================================");
+			} 
 		}
 		
-		s.close();
 	}
 	
 	//---------------------------------------------------------
