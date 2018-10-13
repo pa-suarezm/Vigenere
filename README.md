@@ -1,1 +1,1 @@
-# Vigenere
+Keep in mind that the Vigenere table used includes the ñ
