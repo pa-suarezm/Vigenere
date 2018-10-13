@@ -8,7 +8,7 @@ public class Vigenere {
 	//Attributes
 	//---------------------------------------------------------
 
-	private String[][] table = new String[27][27];
+	private String[][] table = new String[28][28];
 	
 	private String[] alphabet = new String[27];
 	
@@ -51,19 +51,12 @@ public class Vigenere {
 		String sequence = "";
 		
 		//TODO verify
-		for(int i=0; i<=(Math.floorDiv(mLength, kLength)-1); i++)
+		for(int i=0; i<=Math.floorDiv(mLength, kLength); i++)
 			sequence += key;
 		int rest = (mLength%kLength);
 		sequence += key.substring(0, rest);
 		
-		//TODO debug
-		System.out.println("Sequence: " + sequence);
 		
-		String[] aMsg = msg.split("");
-		String[] aSeq = sequence.split("");
-		
-		for(int i=0; i<mLength; i++)
-			ans += table[giveIndex(aMsg[i])][giveIndex(aSeq[i])];
 		
 		return ans;
 	}
@@ -116,7 +109,9 @@ public class Vigenere {
 				ans = "Please restart the program and try again";
 				option = -1;
 			}
-			System.out.println(ans);
+			if(option != -1)
+				System.out.println("Message: ");
+			System.out.print(ans);
 			System.out.println("------------------------------------------------------------------");
 			System.out.println("==================================================================");
 		}
@@ -128,11 +123,6 @@ public class Vigenere {
 	//Private methods
 	//---------------------------------------------------------
 	
-	/**
-	 * Gives the index of a letter in the alphabet
-	 * @param letter
-	 * @return Index of the letter
-	 */
 	private int giveIndex(String letter){
 		int ans = -1;
 		

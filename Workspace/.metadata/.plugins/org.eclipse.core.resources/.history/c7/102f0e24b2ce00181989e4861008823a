@@ -8,7 +8,7 @@ public class Vigenere {
 	//Attributes
 	//---------------------------------------------------------
 
-	private String[][] table = new String[27][27];
+	private String[][] table = new String[28][28];
 	
 	private String[] alphabet = new String[27];
 	
@@ -21,7 +21,9 @@ public class Vigenere {
 	public Vigenere(){
 		initialize();
 		
-		//Uncomment the line below to verify the table using the stdout
+		//Uncomment the line below to verify the table
+		//using the stdout
+		
 		//verify();
 	}
 	
@@ -40,39 +42,13 @@ public class Vigenere {
 	/**
 	 * Encrypts the message that comes in using the value stored in "key"
 	 * @param msg
-	 * @returns Encrypted message
 	 */
 	public String encrypt(String msg){
 		String ans = "";
 		
-		int mLength = msg.length();
-		int kLength = key.length();
-		
-		String sequence = "";
-		
-		//TODO verify
-		for(int i=0; i<=(Math.floorDiv(mLength, kLength)-1); i++)
-			sequence += key;
-		int rest = (mLength%kLength);
-		sequence += key.substring(0, rest);
-		
-		//TODO debug
-		System.out.println("Sequence: " + sequence);
-		
-		String[] aMsg = msg.split("");
-		String[] aSeq = sequence.split("");
-		
-		for(int i=0; i<mLength; i++)
-			ans += table[giveIndex(aMsg[i])][giveIndex(aSeq[i])];
-		
 		return ans;
 	}
 	
-	/**
-	 * Decrypts the message that comes in using the value stored in "key"
-	 * @param msg
-	 * @returns Decrypted message
-	 */
 	public String decrypt (String msg){
 		String ans = "";
 		
@@ -116,7 +92,9 @@ public class Vigenere {
 				ans = "Please restart the program and try again";
 				option = -1;
 			}
-			System.out.println(ans);
+			if(option != -1)
+				System.out.println("Message: ");
+			System.out.print(ans);
 			System.out.println("------------------------------------------------------------------");
 			System.out.println("==================================================================");
 		}
@@ -127,25 +105,6 @@ public class Vigenere {
 	//---------------------------------------------------------
 	//Private methods
 	//---------------------------------------------------------
-	
-	/**
-	 * Gives the index of a letter in the alphabet
-	 * @param letter
-	 * @return Index of the letter
-	 */
-	private int giveIndex(String letter){
-		int ans = -1;
-		
-		boolean found = false;
-		for(int i=0; i<27 && !found; i++){
-			if(alphabet[i].equalsIgnoreCase(letter)){
-				ans = i;
-				found = true;
-			}
-		}
-		
-		return ans;
-	}
 	
 	/**
 	 * Initializes the variables "alphabet" and "table"
@@ -199,9 +158,8 @@ public class Vigenere {
 		for(int i=0; i<26; i++)
 			System.out.print(alphabet[i] + ", ");
 		System.out.println(alphabet[26] + "]");
-		System.out.println("-------------------------------------");
 		
-		//Table
+		System.out.println("-------------------------------------");
 		for(int i=0; i<27; i++){
 			System.out.println();
 			for(int j=0; j<27; j++){

@@ -22,7 +22,7 @@ public class Vigenere {
 		initialize();
 		
 		//Uncomment the line below to verify the table using the stdout
-		//verify();
+		verify();
 	}
 	
 	//---------------------------------------------------------
